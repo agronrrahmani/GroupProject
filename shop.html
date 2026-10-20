@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,144 +8,138 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-<nav class="nav">
-  <div class="logo">Vanta</div>
 
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>    
+<nav class="nav">
+    <div class="logo">Vanta</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="abaut.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart🛒</a></li>
+    </ul>
 </nav>
 
 <section class="products">
+    <h2>Products</h2>
 
-  <h2>Products</h2>
+    <div class="product-grid">
 
-  <div class="product-grid">
+        <!-- White T-shirt -->
+        <div class="product-card">
+            <a href="#whiteT-popup">
+                <img src="images/White tshirt" alt="White T-shirt">
+            </a>
 
-<!-- white Tishrt -->
+            <div class="product-info">
+                <h3>White T-shirt</h3>
+                <p>$24.99</p>
 
-   <div class="product-card">
+                <button type="button" class="btn add-to-cart"
+                    data-id="white-tshirt"
+                    data-name="White T-shirt"
+                    data-price="24.99"
+                    data-image="images/White tshirt">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
 
-      <a href="#whiteT-popup">
-        <img src="images/White tshirt">
-      </a>
+        <!-- Black T-shirt -->
+        <div class="product-card">
+            <a href="#blackT-popup">
+                <img src="images/blacktshirt" alt="Black T-shirt">
+            </a>
 
-      <div class="product-info">
+            <div class="product-info">
+                <h3>Black T-shirt</h3>
+                <p>$24.99</p>
 
-        <h3>White tshirt</h3>
+                <button type="button" class="btn add-to-cart"
+                    data-id="black-tshirt"
+                    data-name="Black T-shirt"
+                    data-price="24.99"
+                    data-image="images/blacktshirt">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
 
-        <p>24.99$</p>
+        <!-- Nike Tech Hoodie -->
+        <div class="product-card">
+            <a href="#niketechhoodie-popup">
+                <img src="images/niketechhoodie" alt="Nike Tech Hoodie">
+            </a>
 
-        <a href="cart.html" class="btn">
-          Add to Cart
-        </a>
+            <div class="product-info">
+                <h3>Nike Tech Hoodie</h3>
+                <p>$55.00</p>
 
-      </div>
+                <button type="button" class="btn add-to-cart"
+                    data-id="nike-tech-hoodie"
+                    data-name="Nike Tech Hoodie"
+                    data-price="55"
+                    data-image="images/niketechhoodie">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
 
-    </div>
+        <!-- Nike Tech Pants -->
+        <div class="product-card">
+            <a href="#niketechpants-popup">
+                <img src="images/niketechpants" alt="Nike Tech Pants">
+            </a>
 
-    <div id="WhiteT-popup" class="popup">
+            <div class="product-info">
+                <h3>Nike Tech Pants</h3>
+                <p>$55.00</p>
 
-      <a href="#" class="close"></a>
-
-      <img src="images/White tshirt">
-
-    </div>
-
-<!-- black Tishrt -->
-
-   <div class="product-card">
-
-      <a href="#blackT-popup">
-        <img src="images/blacktshirt">
-      </a>
-
-      <div class="product-info">
-
-        <h3>Black tshirt</h3>
-
-        <p>24.99$</p>
-
-        <a href="cart.html" class="btn">
-          Add to Cart
-        </a>
-
-      </div>
-
-    </div>
-
-    <div id="blackT-popup" class="popup">
-
-      <a href="#" class="close"></a>
-
-      <img src="images/blacktshirt">
-
-    </div>
-
-<!-- Nike Tech hoodie -->
-
-   <div class="product-card">
-
-      <a href="#niketechhoodie-popup">
-        <img src="images/niketechhoodie">
-      </a>
-
-      <div class="product-info">
-
-        <h3>Nike Tech Hoodie</h3>
-
-        <p>55$</p>
-
-        <a href="cart.html" class="btn">
-          Add to Cart
-        </a>
-
-      </div>
-
-    </div>
-
-    <div id="niketechhoodie-popup" class="popup">
-
-      <a href="#" class="close"></a>
-
-      <img src="images/niketechhoodie">
+                <button type="button" class="btn add-to-cart"
+                    data-id="nike-tech-pants"
+                    data-name="Nike Tech Pants"
+                    data-price="55"
+                    data-image="images/niketechpants">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
 
     </div>
+</section>
 
-<!-- Nike Tech pants -->
+<!-- popups  -->
+<div id="whiteT-popup" class="popup">
+    <a href="#" class="close" aria-label="Close popup"></a>
+    <img src="images/White tshirt" alt="White T-shirt">
+</div>
 
-   <div class="product-card">
 
-      <a href="#niketechhoodie-popup">
-        <img src="images/niketechpants">
-      </a>
+<div id="blackT-popup" class="popup">
+    <a href="#" class="close" aria-label="Close popup"></a>
+    <img src="images/blacktshirt" alt="Black T-shirt">
+</div>
 
-      <div class="product-info">
 
-        <h3>Nike Tech Pants</h3>
+<div id="niketechhoodie-popup" class="popup">
+    <a href="#" class="close" aria-label="Close popup"></a>
+    <img src="images/niketechhoodie" alt="Nike Tech Hoodie">
+</div>
 
-        <p>55$</p>
 
-        <a href="cart.html" class="btn">
-          Add to Cart
-        </a>
+<div id="niketechpants-popup" class="popup">
+    <a href="#" class="close" aria-label="Close popup"></a>
+    <img src="images/niketechpants" alt="Nike Tech Pants">
+</div>
 
-      </div>
+<footer>
+    <p>© 2026 Vanta</p>
+    <p>Quality Clothes</p>
+</footer>
 
-    </div>
-
-    <div id="niketechpants-popup" class="popup">
-
-      <a href="#" class="close"></a>
-
-      <img src="images/niketechpants">
-
-    </div>
+<!-- Your JavaScript file -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
