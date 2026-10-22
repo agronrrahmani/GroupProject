@@ -1,4 +1,3 @@
-
 const CART_KEY = "vantaCart";
 
 // Get cart products from localStorage
@@ -11,21 +10,21 @@ function saveCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
-// Add products to the cart from shop.html
-document.addEventListener("click", function (event) {
-    const button = event.target.closest(".add-to-cart");
-
-    if (!button) return;
+// Add products to the cart
+$(document).on("click", ".add-to-cart", function () {
+    const button = $(this);
 
     const product = {
-        id: button.dataset.id,
-        name: button.dataset.name,
-        price: Number(button.dataset.price),
-        image: button.dataset.image
+        id: String(button.attr("data-id")),
+        name: button.attr("data-name"),
+        price: Number(button.attr("data-price")),
+        image: button.attr("data-image")
     };
 
     const cart = getCart();
-    const existingProduct = cart.find(item => item.id === product.id);
+    const existingProduct = cart.find(
+        item => String(item.id) === product.id
+    );
 
     if (existingProduct) {
         existingProduct.quantity++;
@@ -38,14 +37,14 @@ document.addEventListener("click", function (event) {
 
     saveCart(cart);
 
-    button.textContent = "Added to Cart!";
+    button.text("Added to Cart!");
 
     setTimeout(function () {
-        button.textContent = "Add to Cart";
+        button.text("Add to Cart");
     }, 1000);
 });
 
-// Display cart products on cart.html
+// Display cart products
 function renderCart() {
     const cartItems = document.getElementById("cart-items");
     const cartTotal = document.getElementById("cart-total");
@@ -62,7 +61,7 @@ function renderCart() {
             emptyCart.hidden = false;
         }
 
-        cartTotal.textContent = "$0.00";
+        $("#cart-total").text("$0.00");
         return;
     }
 
@@ -127,54 +126,55 @@ function renderCart() {
         cartItems.appendChild(item);
     });
 
- // totali i cmimit
+    // Calculate and display total price
     const total = cart.reduce(function (sum, product) {
         return sum + product.price * product.quantity;
     }, 0);
 
-    cartTotal.textContent = "$" + total.toFixed(2);
+    $("#cart-total").text("$" + total.toFixed(2));
 }
 
-document.addEventListener("click", function (event) {
-    const button = event.target.closest("[data-action]");
-
-    if (!button) return;
-
-    const action = button.dataset.action;
-    const id = button.dataset.id;
+// Increase, decrease, or remove products
+$(document).on("click", "[data-action]", function () {
+    const button = $(this);
+    const action = button.attr("data-action");
+    const id = String(button.attr("data-id"));
 
     let cart = getCart();
-    const product = cart.find(item => item.id === id);
+
+    const product = cart.find(
+        item => String(item.id) === id
+    );
 
     if (!product) return;
 
     if (action === "increase") {
         product.quantity++;
-    }
-
-    if (action === "decrease") {
+    } else if (action === "decrease") {
         product.quantity--;
 
         if (product.quantity <= 0) {
-            cart = cart.filter(item => item.id !== id);
+            cart = cart.filter(
+                item => String(item.id) !== id
+            );
         }
-    }
-
-    if (action === "remove") {
-        cart = cart.filter(item => item.id !== id);
+    } else if (action === "remove") {
+        cart = cart.filter(
+            item => String(item.id) !== id
+        );
     }
 
     saveCart(cart);
     renderCart();
 });
 
-document.addEventListener("click", function (event) {
-    if (event.target.id === "clear-cart") {
-        localStorage.removeItem(CART_KEY);
-        renderCart();
-    }
+// Clear the cart
+$(document).on("click", "#clear-cart", function () {
+    localStorage.removeItem(CART_KEY);
+    renderCart();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+// Run when the document is ready
+$(document).ready(function () {
     renderCart();
 });
